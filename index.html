@@ -116,17 +116,24 @@
     --font:        'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   }
 
-  body {
-    font-family: var(--font);
-    background: var(--bg);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.25rem;
-    color: var(--text);
-    -webkit-font-smoothing: antialiased;
-  }
+  html, body {
+  height: 100%;
+  overflow: hidden;           /* 🔒 stops all scrolling */
+  overscroll-behavior: none;  /* 🚫 stops bounce/pull-to-refresh */
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  position: fixed;            /* 📌 locks body to viewport */
+  inset: 0;                   /* 📌 top/right/bottom/left = 0 */
+}
 
   /* ============ MAIN SHELL ============ */
   .shell {
